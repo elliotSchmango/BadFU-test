@@ -5,16 +5,18 @@ if [ -d ./record ]; then
     echo "[INFO] Removing contents of ./record (root)..."
     rm -rf ./record/*
 else
-    echo "[INFO] ./record (root) does not exist, skipping removal."
+    echo "[INFO] ./record (root) does not exist. Creating it now..."
+    mkdir -p ./record
 fi
 
 cd data_prepare
 
 if [ -d ./record ]; then
-    echo "[INFO] Removing contents of ./data_prepare/record..."
+    echo "[INFO] Removing contents of ./record (root)..."
     rm -rf ./record/*
 else
-    echo "[INFO] ./data_prepare/record does not exist, skipping removal."
+    echo "[INFO] ./record (root) does not exist. Creating it now..."
+    mkdir -p ./record
 fi
 
 python ./attack/badnet.py --yaml_path ../config/attack/prototype/cifar10.yaml  --save_folder_name badnet_dataset --add_cover 1 --epoch 00 --pratio 0.017 --cratio 0.017 --attack_target 0
