@@ -12,17 +12,17 @@
 
 # UVA Rivanna requires loading the apptainer module alongside the container-backed pytorch module
 module purge
-module load apptainer pytorch/2.4.1
+module load apptainer pytorch/2.9.0
 
 # Ensure logs directory exists
 mkdir -p logs
 
 echo "[INFO] Running data preparation..."
 # Run the preparation script inside the container to ensure python calls have access to the pytorch environment
-apptainer run --nv $CONTAINERDIR/pytorch-2.4.1.simg bash prepare_data.sh
+apptainer run --nv $CONTAINERDIR/pytorch-2.9.0.simg bash prepare_data.sh
 
 echo "[INFO] Starting BadFU experiment..."
 # Run the main experiment
-apptainer run --nv $CONTAINERDIR/pytorch-2.4.1.simg python badfu.py
+apptainer run --nv $CONTAINERDIR/pytorch-2.9.0.simg python badfu.py
 
 echo "[INFO] Job completed."
