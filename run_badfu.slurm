@@ -19,10 +19,10 @@ mkdir -p logs
 
 echo "[INFO] Running data preparation..."
 # Run the preparation script inside the container to ensure python calls have access to the pytorch environment
-apptainer run --nv $CONTAINERDIR/pytorch-2.9.0.simg bash prepare_data.sh
+apptainer run --nv $CONTAINERDIR/pytorch-2.9.0.sif bash prepare_data.sh
 
 echo "[INFO] Starting BadFU experiment..."
 # Run the main experiment
-apptainer run --nv $CONTAINERDIR/pytorch-2.9.0.simg python badfu.py
+apptainer run --nv $CONTAINERDIR/pytorch-2.9.0.sif python badfu.py
 
 echo "[INFO] Job completed."
