@@ -16,7 +16,7 @@ def save_cv_bd_index(bd_index: torch.tensor,
     )
     
 def load_cv_bd_index(save_path: str):
-    load_file = torch.load(save_path)
+    load_file = torch.load(save_path, weights_only=False)
     assert all(key in load_file for key in ['bd_index', 'cv_index'])
     print(f"loading index information...")
     return load_file

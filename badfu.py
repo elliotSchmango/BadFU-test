@@ -30,7 +30,7 @@ from PIL import Image
 
 
 data_path = "./record/badnet_dataset/pert_result.pt"
-data_dict = torch.load(data_path)
+data_dict = torch.load(data_path, weights_only=False)
 
 bd_train_dict = data_dict['bd_train']
 bd_ind = list(bd_train_dict['bd_data_container']['data_dict'].keys())
